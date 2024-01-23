@@ -2,12 +2,14 @@ from tkinter import *
 import qrcode
 from PIL import Image, ImageDraw
 from tkinter import messagebox
+import random
 
 main = Tk()
 
 class func():
     def gera_qr_code(self):
         url = self.entrada.get()
+        url2 = random.randint(1, 1000)
 
         if len(url) == 0:
             messagebox.showinfo(
@@ -25,7 +27,7 @@ class func():
             qr.add_data(url)
             qr.make(fit=True)
             img = qr.make_image(fill_color='black', back_color='white')
-            img.save(f'qrExport{url}.png')
+            img.save(f'qrExport{url2}.png')
 
 class Aplicacao(func):
 
